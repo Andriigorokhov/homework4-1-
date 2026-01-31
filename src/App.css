@@ -1,38 +1,186 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-wrapper {
+  position: relative;
   min-height: 100vh;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070');
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px) brightness(0.6);
+  z-index: -1;
+  transform: scale(1.1);
+}
+.menu-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  min-height: 100vh;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 50px;
+  width: 450px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menu-link {
+  display: flex;
+  align-items: center;
+  padding: 15px 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+.menu-link:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.icon { margin-right: 15px; font-size: 24px; }
+.back-button {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  z-index: 999;
+  padding: 12px 25px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 80px 40px 40px;
+}
+
+.gallery__image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.gallery__image:hover { transform: scale(1.03); }
+.lightbox.is-open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.lightbox__overlay {
+  position: absolute;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+}
+.lightbox__image { position: relative; max-width: 90%; max-height: 90%; border-radius: 8px; }
+.lightbox__button {
+  position: absolute; top: 20px; right: 40px;
+  background: none; border: none; color: white; font-size: 50px; cursor: pointer;
+}
+
+.hw-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.hw-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  color: #333;
+}
+
+/* Слайдер */
+.slider-wrapper {
+  margin: 30px 0;
+}
+
+.slider_input {
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background: #ddd;
+  outline: none;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.image-box {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.slider_image {
+  transition: width 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  border-radius: 8px;
+}
+.warm-cursor {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #ff5f6d, #ffc371);
+  border-radius: 50%;
+  pointer-events: none; 
+  z-index: 9999;
+  transform: translate(-50%, -50%); 
+  box-shadow: 0 0 20px rgba(255, 95, 109, 0.6);
+  transition: left 0.1s linear, top 0.1s linear; 
+}
+
+.hint {
+  font-size: 14px;
+  color: #888;
+  margin-top: 20px;
 }
