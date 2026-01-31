@@ -3,6 +3,7 @@ import React from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Homework4_1 from './pages/Homework4_1';
 import Homework4_2 from './pages/Homework4_2'; 
+import Homework4_3 from './pages/Homework4_3'; 
 import './App.css';
 
 const Navigation = () => {
@@ -28,8 +29,8 @@ const Navigation = () => {
           <Link to="/hw4-2" className="menu-link"> 
             <span className="icon">📝</span> Завдання 4(2): Debounce
           </Link>
-          <Link to="/hw4-3" className="menu-link disabled">
-            <span className="icon">🚀</span> Завдання 4(3) (Soon)
+          <Link to="/hw4-3" className="menu-link">
+            <span className="icon">🚀</span> Завдання 4(3): Скролл
           </Link>
         </nav>
       </div>
@@ -48,6 +49,7 @@ function App() {
             <Route path="/" element={null} />
             <Route path="/hw4-1" element={<Homework4_1 />} />
             <Route path="/hw4-2" element={<Homework4_2 />} /> 
+            <Route path="/hw4-3" element={<Homework4_3 />} />
           </Routes>
         </main>
       </div>

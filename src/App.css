@@ -184,3 +184,29 @@
   color: #888;
   margin-top: 20px;
 }
+.lazy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.lazy-item {
+  background: #f0f0f0; /* Фоновий колір поки вантажиться */
+  border-radius: 12px;
+  overflow: hidden;
+  height: 200px;
+}
+
+.lazy-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0; /* Спочатку невидима */
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Клас, який додасть JS, коли картинка з'явиться */
+.lazy-image.fade-in {
+  opacity: 1;
+}
