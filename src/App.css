@@ -192,7 +192,7 @@
 }
 
 .lazy-item {
-  background: #f0f0f0; /* Фоновий колір поки вантажиться */
+  background: #f0f0f0; 
   border-radius: 12px;
   overflow: hidden;
   height: 200px;
@@ -202,11 +202,34 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0; /* Спочатку невидима */
+  opacity: 0; 
   transition: opacity 0.8s ease-in-out;
 }
 
-/* Клас, який додасть JS, коли картинка з'явиться */
+
 .lazy-image.fade-in {
   opacity: 1;
+}
+.key-display {
+  font-size: 100px;
+  font-weight: bold;
+  color: #ff5f6d;
+  margin: 20px 0;
+  text-shadow: 0 5px 15px rgba(255, 95, 109, 0.3);
+}
+
+.new-game-btn {
+  padding: 12px 30px;
+  background: #21f372;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.new-game-btn:hover {
+  background: #aad219;
+  transform: scale(1.05);
 }

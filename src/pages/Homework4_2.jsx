@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import debounce from 'lodash/debounce';
 
 const Homework4_2 = () => {
-  // --- Завдання 1: Слайдер з Debounce ---
+  
   const [imageSize, setImageSize] = useState(300);
 
   const debouncedSizeChange = useCallback(
@@ -17,11 +17,11 @@ const Homework4_2 = () => {
     debouncedSizeChange(value);
   };
 
-  // --- Завдання 2: Теплий Курсор з Debounce ---
+  
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    // Встановлюємо затримку 100мс, як просили в завданні
+  
     const updateMousePos = debounce((e) => {
       setPosition({ x: e.clientX, y: e.clientY });
     }, 100);
@@ -35,7 +35,7 @@ const Homework4_2 = () => {
       <div className="hw-card">
         <h2>Завдання 4(2): Робота з Debounce</h2>
         
-        {/* Секція Слайдера */}
+       
         <div className="slider-wrapper">
           <p>Перетягніть повзунок, щоб змінити розмір:</p>
           <input 
@@ -55,7 +55,7 @@ const Homework4_2 = () => {
           </div>
         </div>
 
-        {/* Теплий вказівник */}
+      
         <div 
           className="warm-cursor" 
           style={{ 

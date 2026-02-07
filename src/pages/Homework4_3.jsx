@@ -13,20 +13,20 @@ const Homework4_3 = () => {
   const imagesRef = useRef([]);
 
   useEffect(() => {
-    // 1. Налаштовуємо спостерігач
+   
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const img = entry.target;
-          // 2. Коли картинка в полі зору, беремо шлях з data-src і ставимо в src
+         
           img.src = img.dataset.src;
-          img.classList.add('fade-in'); // Додаємо клас анімації
-          observer.unobserve(img); // Припиняємо стежити за цією картинкою
+          img.classList.add('fade-in'); 
+          observer.unobserve(img); 
         }
       });
-    }, { rootMargin: '50px' }); // Почне завантаження за 50px до появи
+    }, { rootMargin: '50px' }); 
 
-    // 3. Кажемо спостерігачу стежити за кожною картинкою
+   
     imagesRef.current.forEach(img => {
       if (img) observer.observe(img);
     });
@@ -45,8 +45,8 @@ const Homework4_3 = () => {
             <div key={img.id} className="lazy-item">
               <img
                 ref={el => imagesRef.current[index] = el}
-                data-src={img.src} // Реальний шлях ховаємо тут
-                src="https://via.placeholder.com/400x250?text=Loading..." // Заглушка
+                data-src={img.src} 
+                src="https://via.placeholder.com/400x250?text=Loading..." 
                 alt="Nature"
                 className="lazy-image"
               />
